@@ -17,7 +17,8 @@ class LoginFormC extends LoginForm
     private $_user = false;
 
 
-    public function getUser() {
+    public function getUser()
+    {
         if ($this->_user === false) {
             $this->_user = Caregiver::findByUsername($this->username);
         }

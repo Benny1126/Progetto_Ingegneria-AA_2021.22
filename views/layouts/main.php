@@ -52,7 +52,19 @@ AppAsset::register($this);
         ],
     ]);
     
-    $navItem=[];
+    $navItem=[
+        //['label' => 'Home', 'url' => ['/site/index']],
+        // ['label' => 'About', 'url' => ['/site/about']],
+        // ['label' => 'Contact', 'url' => ['/site/contact']],  
+        //  ['label' => 'Screening', 'url' => ['/screening/index']],
+        //  [
+        //     'label' =>'Menu',
+        //     'items' =>[
+        //         ['label' =>'GII', 'url' =>['/gii']]
+        //     ]
+
+        //  ]  
+    ];
 
     if(Yii::$app->user->isGuest){
         array_push($navItem,['label' => 'Login', 'url' => ['/accessi/login']]);
@@ -60,12 +72,17 @@ AppAsset::register($this);
         
     }
     elseif(Yii::$app->user->identity->ruolo == 1){
-        array_push($navItem,['label' => 'Home', 'url' => ['/accessi/indexpaz']]);
-        array_push($navItem,['label' => 'Il mio Profilo', 'url' => ['/gestione-pazienti/profilo']]);
-        array_push($navItem,['label' => 'Screening', 'url' => ['/screening/indexp']]);    
-        array_push($navItem,['label' => 'Informazioni', 'url' => ['/site/about']]);     
-        array_push($navItem,['label' => 'Logout (' . Yii::$app->user->identity->username . ')', 'url' => ['/site/logout'], 'template' => '<a href="{url}" data-method="post">{label}</a>', 'linkOptions' => ['data-method' => 'post']]);
-    }
+            array_push($navItem,['label' => 'Home', 'url' => ['/accessi/indexpaz']]);
+            array_push($navItem,['label' => 'Il mio Profilo', 'url' => ['/gestione-pazienti/profilo']]);
+            array_push($navItem,['label' => 'Terapia', 'url' => ['/gestione-pazienti/terapia']]);
+            // array_push($navItem,'<li>'. Html::beginForm(['/gestione-pazienti/terapia'], 'post', ['class' => 'form-inline']). Html::submitButton('Terapia' ,['class' => 'btn btn-link logout']).Html::endForm().'</li>');
+            array_push($navItem,['label' => 'Screening', 'url' => ['/screening/indexp']]);    
+            array_push($navItem,['label' => 'Informazioni', 'url' => ['/site/about']]);     
+            array_push($navItem,['label' => 'Logout (' . Yii::$app->user->identity->username . ')', 'url' => ['/site/logout'], 'template' => '<a href="{url}" data-method="post">{label}</a>', 'linkOptions' => ['data-method' => 'post']]);
+            
+            // array_push($navItem,'<li>'. Html::beginForm(['/site/about'], 'post', ['class' => 'form-inline']). Html::submitButton('Informazioni ' ,['class' => 'btn btn-link logout']).Html::endForm().'</li>');
+            //array_push($navItem,'<li>'. Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline']). Html::submitButton('Logout (' . Yii::$app->user->identity->username . ')',['class' => 'btn btn-link logout']).Html::endForm().'</li>');
+        }
     else if (Yii::$app->user->identity->ruolo == 2) {
         $navItem=[
             [
@@ -74,12 +91,18 @@ AppAsset::register($this);
                     ['label' => 'Registra Paziente', 'url' => ['/accessi/registerp']],
                     ['label' => 'Lista pazienti', 'url' => ['/gestione-caregiver/listapazienti']],
                 ]
-            ]
-        ];
-        array_push($navItem,['label' => 'Home', 'url' => ['/accessi/indexcare']]);
+            ]];
+            array_push($navItem,['label' => 'Home', 'url' => ['/accessi/indexcare']]);
+       
+
+        
         array_push($navItem,['label' => 'Informazioni', 'url' => ['/site/about']]);
+
+        array_push($navItem,['label' => 'Prenota', 'url' => ['/gestione-caregiver/prenota', 'cf' => yii::$app->user->identity-> cf]]);
+
         array_push($navItem,['label' => 'Contatti', 'url' => ['/gestione-caregiver/contact']]);
         array_push($navItem,['label' => 'Logout (' . Yii::$app->user->identity->email . ')', 'url' => ['/site/logout'], 'template' => '<a href="{url}" data-method="post">{label}</a>', 'linkOptions' => ['data-method' => 'post']]);
+
     }
     else{
         array_push($navItem,['label' => 'Home', 'url' => ['/accessi/indexlogo']]);
@@ -89,14 +112,23 @@ AppAsset::register($this);
             'items' =>[
                 ['label' => 'Lista Caregiver', 'url' => ['/gestione-caregiver']],
                 ['label' => 'Lista pazienti', 'url' => ['/gestione-pazienti']],
+                ['label' => 'Lista Terapie', 'url' => ['/gestione-terapia/index']],
+                ['label' => 'Lista Esercizi Database', 'url' => ['/gestione-esercizi/index']],
+                ['label' => 'Lista Esercizi Assegnati', 'url' => ['/gestione-esercizi-terapia/index']],
                 ['label' => 'Elenco Screening', 'url' => ['/screening/indexl']],
             ]
         ]];
         array_push($navItem,['label' => 'Home', 'url' => ['/accessi/indexlogo']]);
         array_push($navItem,['label' => 'Registra Caregiver', 'url' => ['/accessi/register']]);
+        array_push($navItem,['label' => 'Calendario', 'url' => ['/gestione-prenotazione/prenotazioni']]);           
         array_push($navItem, ['label' => 'Logout (' . Yii::$app->user->identity->email . ')', 'url' => ['/site/logout'], 'template' => '<a href="{url}" data-method="post">{label}</a>', 'linkOptions' => ['data-method' => 'post']]);        
+        
     }
 
+
+
+
+    
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => $navItem

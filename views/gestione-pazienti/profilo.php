@@ -108,8 +108,7 @@ use yii\widgets\DetailView;
                   <div class="card h-100">
                     <div class="card-body">
                     <p><img src="https://www.playstationzone.it/wp-content/uploads/2019/04/Psn_bronze_trophy.png" alt="Trofeo di Bronzo" width="100" height="100">Trofei di Bronzo: <?php echo($model->premi_bronzo)?></p>
-        <p><img src="https://www.playstationzone.it/wp-content/uploads/2019/04/argento-150x150.png" alt="Trofeo di Argento" width="100" height="100">Trofei di Argento: <?php echo($model->premi_argento)?></p>
-      
+                    <p><img src="https://www.playstationzone.it/wp-content/uploads/2019/04/argento-150x150.png" alt="Trofeo di Argento" width="100" height="100">Trofei di Argento: <?php echo($model->premi_argento)?></p>
                     </div>
                   </div>
                 </div>
@@ -117,14 +116,11 @@ use yii\widgets\DetailView;
                   <div class="card h-100">
                     <div class="card-body">
                     <p><img src="https://www.playstationzone.it/wp-content/uploads/2019/04/gold-ps3-trophy.png" alt="Trofeo d'oro" width="100" height="100">Trofei d'Oro: <?php echo($model->premi_oro)?></p>
-        <p><img src="https://www.playstationzone.it/wp-content/uploads/2019/04/platinum-trophy-png-1-150x150.png" alt="Trofeo di Platino" width="100" height="100">Trofei di Platino: <?php echo($model->premi_platino)?></p>
+                    <p><img src="https://www.playstationzone.it/wp-content/uploads/2019/04/platinum-trophy-png-1-150x150.png" alt="Trofeo di Platino" width="100" height="100">Trofei di Platino: <?php echo($model->premi_platino)?></p>
                     </div>
                   </div>
                 </div>
               </div>
-
-
-
             </div>
           </div>
 

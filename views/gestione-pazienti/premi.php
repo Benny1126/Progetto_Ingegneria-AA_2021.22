@@ -23,15 +23,15 @@ $this->title = 'My Yii Application';
     ]); ?>
 <div class="site-premi">
 <p>Scegli il premio da assegnare al paziente:</p>
-<p>Premio Bronzo</p>
+
 <?= $form->field($model, 'premi_bronzo')-> textInput() ?>
-<p>Premio Argento</p>
+
 <?= $form->field($model, 'premi_argento')-> textInput() ?>
 
-<p>Premio Oro</p>
+
 <?= $form->field($model, 'premi_oro')-> textInput() ?>
 
-<p>Premio Platino</p>
+
 <?= $form->field($model, 'premi_platino')-> textInput() ?>
 <div class="form-group">
         <?= Html::submitButton('salva', ['class' => 'btn btn-success']) ?>

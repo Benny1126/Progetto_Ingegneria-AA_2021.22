@@ -108,12 +108,3 @@ select * from terapia;
 select * from esercizio;
 select * from esercizio_terapia;
 select * from prenotazioni;
-
-drop table pazienti;
-drop table terapia;
-drop table esercizio;
-drop table esercizio_terapia;
-drop table prenotazioni;
-update Caregiver set cf='cfmodificatoOK' where nome like 'testcare1';
-
-

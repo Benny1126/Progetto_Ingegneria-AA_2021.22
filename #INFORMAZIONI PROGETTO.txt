@@ -1,0 +1,6 @@
+Istruzioni per eseguire il progetto:
+1. Scaricare e installare php, impostando le relative variabili d'ambiente (https://www.php.net/downloads.php)
+2. Installare il composer (https://www.yiiframework.com/doc/guide/2.0/en/start-installation#installing-via-composer)
+3. Recarsi nella cartella "database progetto" dove è memorizzato lo script di MySQL ed eseguirlo
+4. Successivamente aprire il CMD e posizionarsi nella root del progetto
+	4.1 Eseguire il comanndo "php yii serve"
